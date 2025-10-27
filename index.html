@@ -1,229 +1,145 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HUNANIMA — Machines Agricoles Simples</title>
-  <meta name="description" content="HUNANIMA — machines agricoles simples et fiables. Récolte, fourrage et outils pour petites parcelles avec support clair et prix équitable."/>
+  <title>Beaumont Lawnmower Shop LLC</title>
+  <meta name="description" content="Beaumont Lawnmower Shop LLC — Professional lawnmower repair, servicing, and sales in Beaumont, CA. Trusted tools for every yard."/>
   <style>
     :root{
-      --primary:#1B7F3A;   /* Vert */
-      --accent:#FFD300;    /* Jaune */
-      --nav:#0E4D25;       /* Vert foncé */
-      --ink:#0b0b0b;
-      --muted:#58636f;
+      --primary:#15803d;   /* Green */
+      --accent:#facc15;    /* Yellow */
+      --ink:#1a1a1a;
+      --muted:#6b7280;
+      --bg:#f9fafb;
       --card:#ffffff;
-      --bg:#ffffff;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;border-radius:12px;}
+    .container{max-width:1100px;margin:0 auto;padding:24px;}
 
     /* Header */
-    header{background:var(--nav); color:#fff; position:sticky; top:0; z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    .topbar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px}
-    .brand{font-weight:900; letter-spacing:.35px}
-    nav a{display:inline-block; padding:10px 14px; border-radius:12px; color:#eaffea; font-weight:700}
-    nav a:hover{background:rgba(255,255,255,.12)}
-    .cta-btn{background:var(--accent); color:#1a1500; padding:10px 14px; border-radius:12px; font-weight:800}
+    header{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.25);}
+    .topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:16px 24px;}
+    .brand{font-weight:900;font-size:1.3rem;color:#fef9c3;}
+    nav a{margin:0 10px;color:#dcfce7;font-weight:600;}
+    nav a:hover{text-decoration:underline;}
+    .cta-btn{background:var(--accent);color:#000;padding:8px 14px;border-radius:8px;font-weight:700;}
 
-    /* Hero (animated card) */
-    .hero-wrap{background:linear-gradient(180deg,#ffffff,#f2fff6); padding:42px 24px}
-    .hero-card{
-      background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:22px;
-      box-shadow:0 30px 60px rgba(0,0,0,.12); padding:28px;
-      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; overflow:hidden;
-      transform:translateY(24px); opacity:0; animation:cardIn .9s ease-out .15s forwards;
-    }
-    @keyframes cardIn{to{transform:translateY(0);opacity:1}}
-    .hero-badge{display:inline-flex; align-items:center; gap:10px; background:#0e3a1d; color:var(--accent); padding:6px 12px; border-radius:999px; font-size:.9rem; font-weight:800}
-    .hero-title{font-size:clamp(26px,4vw,42px); line-height:1.15; margin:14px 0 10px; font-weight:900}
-    .hero-title .grad{background:linear-gradient(90deg,var(--primary),#2fc368); -webkit-background-clip:text; color:transparent}
-    .hero-sub{font-size:1.02rem; color:#2f3540}
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
-    .btn{border:2px solid #0e3a1d; color:#fff; background:#0e3a1d; padding:12px 18px; border-radius:14px; font-weight:800}
-    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 16px rgba(0,0,0,.15)}
-    .btn.secondary{background:var(--accent); color:#1a1500; border-color:var(--accent)}
-    .hero-media{border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:#f6fff8;
-      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px}
-    .hero-media img{object-fit:cover; width:100%; height:100%}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;padding:48px 24px;background:linear-gradient(180deg,#fff,#fefce8);}
+    .hero h1{font-size:clamp(28px,4vw,46px);margin:0;color:var(--primary);}
+    .hero p{color:#1e293b;font-size:1.05rem;}
+    .hero img{width:100%;object-fit:cover;border-radius:16px;}
+    .hero-actions{margin-top:20px;display:flex;gap:12px;}
+    .btn{background:var(--primary);color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;}
+    .btn.secondary{background:var(--accent);color:#000;}
+    .btn:hover{opacity:0.9;}
 
     /* Sections */
-    section{padding:56px 24px}
-    section h2{font-size:clamp(22px,3vw,32px); margin:0 0 14px; font-weight:900}
-    .muted{color:var(--muted)}
-
-    /* Cards */
-    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px}
-    .card{border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:16px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.06);
-      transform:translateY(14px); opacity:0}
-    .card.reveal{animation:reveal .7s ease-out forwards}
-    @keyframes reveal{to{transform:translateY(0); opacity:1}}
-
-    /* Gallery */
-    .gallery{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-    .gallery img{border-radius:14px; aspect-ratio:4/3; object-fit:cover}
-
-    /* Formula */
-    .formula{border-left:6px solid var(--accent); background:#fff9ce; padding:16px 18px; border-radius:12px}
-    .formula ol{margin:0; padding-left:18px}
-    .formula li{margin:8px 0}
+    section{padding:56px 24px;}
+    section h2{font-size:clamp(22px,3vw,32px);margin-bottom:16px;color:var(--primary);}
+    .muted{color:var(--muted);}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+    .card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 16px rgba(0,0,0,0.08);}
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 
     /* Contact */
-    .contact-box{background:var(--primary); color:#fff; border-radius:18px; padding:20px; display:grid; gap:8px; border:1px solid rgba(0,0,0,.12)}
-    .contact-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
-    .contact-actions a{display:inline-block; background:var(--accent); color:#1a1500; padding:10px 14px; border-radius:12px; font-weight:800}
+    .contact-box{background:var(--accent);color:#1a1a1a;border-radius:16px;padding:24px;box-shadow:0 6px 12px rgba(0,0,0,0.15);}
+    .contact-actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;}
+    .contact-actions a{background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;}
+    .contact-actions a:hover{background:#166534;}
 
-    footer{background:#0e3a1d; color:var(--accent); padding:18px; text-align:center; font-weight:700}
+    footer{background:#0a3f1c;color:#dcfce7;text-align:center;padding:18px;font-weight:700;}
 
-    @media (max-width:820px){
-      .hero-card{grid-template-columns:1fr; padding:20px}
-      .gallery{grid-template-columns:1fr}
+    @media(max-width:820px){
+      .hero{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="topbar container">
-      <div class="brand">HUNANIMA</div>
-      <nav>
-        <a href="#about">À propos</a>
-        <a href="#products">Produits</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#formula">Notre Formule</a>
-        <a href="#contact" class="cta-btn">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="topbar container">
+    <div class="brand">Beaumont Lawnmower Shop LLC</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact" class="cta-btn">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <div class="hero-wrap">
-    <div class="container">
-      <div class="hero-card">
-        <div>
-          <span class="hero-badge">Machines Agricoles Simples</span>
-          <h1 class="hero-title">Travaillez malin. <span class="grad">Faites croître sûrement.</span></h1>
-          <p class="hero-sub">Équipements compacts, fiables et faciles à entretenir pour petites et moyennes exploitations — récolte, fourrage et manutention simplifiés.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#products">Découvrir nos Produits</a>
-            <a class="btn secondary" href="#contact">Demander un Devis</a>
-          </div>
-          <p class="muted" style="margin-top:10px;">
-            Avenue Baratier, 95160 Montmorency • +33 7 38 50 26 36 • admin@tyusex.shop
-          </p>
-        </div>
-        <div class="hero-media">
-          <img src="https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg" alt="Champ & tracteur">
-          <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse">
-          <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Outil de fourrage">
-          <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Équipement de silo">
-        </div>
-      </div>
+<section class="hero">
+  <div>
+    <h1>Powering Your Lawn with <span style="color:var(--accent)">Precision & Care.</span></h1>
+    <p>Welcome to <strong>Beaumont Lawnmower Shop LLC</strong> — your trusted source for lawnmower repair, servicing, and sales in Beaumont, CA. From tune-ups to replacements, we help your yard stay in perfect shape.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn">Our Services</a>
+      <a href="#contact" class="btn secondary">Get in Touch</a>
+    </div>
+    <p class="muted" style="margin-top:10px;">+1 573 763 8719 • contact@holvarin.shop</p>
+  </div>
+  <div>
+    <img src="https://www.thesun.co.uk/wp-content/uploads/2025/06/NINTCHDBPICT001001908237.jpg?strip=all&quality=100&w=1920&h=1080&crop=1" alt="Lawnmower service photo">
+  </div>
+</section>
+
+<section id="about" class="container">
+  <h2>About Us</h2>
+  <p class="muted">
+    We’re a locally owned and operated shop in Beaumont, CA, specializing in small-engine maintenance and mower repairs. With decades of combined experience, our technicians make sure your outdoor equipment performs like new — every time.
+  </p>
+  <div class="cards" style="margin-top:12px;">
+    <div class="card"><strong>Expert Repairs:</strong> From blades to engines, we handle it all.</div>
+    <div class="card"><strong>Top Brands:</strong> Service for leading mower manufacturers.</div>
+    <div class="card"><strong>Quick Turnaround:</strong> Most jobs done in under 48 hours.</div>
+    <div class="card"><strong>Friendly Support:</strong> Honest pricing, trusted advice.</div>
+  </div>
+</section>
+
+<section id="services" class="container">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card"><h3>Lawnmower Repair</h3><p>Blade sharpening, oil changes, tune-ups, and full diagnostics.</p></div>
+    <div class="card"><h3>Engine Overhaul</h3><p>Expert engine cleaning, parts replacement, and efficiency testing.</p></div>
+    <div class="card"><h3>Parts & Accessories</h3><p>Belts, filters, spark plugs, and everything to keep your mower running strong.</p></div>
+    <div class="card"><h3>New & Used Sales</h3><p>Shop a range of affordable new and refurbished mowers.</p></div>
+  </div>
+</section>
+
+<section id="gallery" class="container">
+  <h2>Workshop Gallery</h2>
+  <div class="gallery">
+    <img src="https://st-store.ru/wa-data/public/shop/products/52/20/2052/images/1119/1119.970.jpg" alt="Mower parts on display">
+    <img src="https://m.media-amazon.com/images/S/aplus-seller-content-images-us-east-1/A1F83G8C2ARO7P/A2CDMBK5RNKHM0/fc5b1bd2-432c-45d4-adab-735d3f452a95.__CR0,48,2000,1237_PT0_SX970_V1___.jpg" alt="Workshop equipment">
+    <img src="https://www.thesun.co.uk/wp-content/uploads/2025/06/NINTCHDBPICT001001908237.jpg?strip=all&quality=100&w=1920&h=1080&crop=1" alt="Lawnmower being serviced">
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <h2>Contact Us</h2>
+  <div class="contact-box">
+    <div><strong>Company:</strong> Beaumont Lawnmower Shop LLC</div>
+    <div><strong>Domain:</strong> Lawnmower Repair & Sales</div>
+    <div><strong>Phone:</strong> +1 573 763 8719</div>
+    <div><strong>Email:</strong> contact@holvarin.shop</div>
+    <div><strong>Address:</strong> Magnolia Ave, Beaumont, CA 92223, United States</div>
+    <div class="contact-actions">
+      <a href="mailto:contact@holvarin.shop?subject=Lawnmower%20Service%20Inquiry">Email Us</a>
+      <a href="tel:+15737638719">Call Now</a>
+      <a href="https://wa.me/15737638719" target="_blank">WhatsApp</a>
     </div>
   </div>
+</section>
 
-  <!-- About -->
-  <section id="about" class="container">
-    <h2>À propos de nous</h2>
-    <p class="muted">
-      HUNANIMA conçoit des machines agricoles pratiques, avec des commandes simples et une maintenance facile.  
-      Notre objectif : des outils qui démarrent chaque matin et font gagner des heures aux champs.
-    </p>
-    <div class="cards" style="margin-top:12px">
-      <article class="card reveal" style="animation-delay:.00s"><strong>Fiabilité :</strong> Moins de capteurs, mécanique éprouvée, entretien simple.</article>
-      <article class="card reveal" style="animation-delay:.08s"><strong>Adaptabilité :</strong> Accessoires pour récolte, fourrage et manutention.</article>
-      <article class="card reveal" style="animation-delay:.16s"><strong>Support :</strong> Conseils pièces et entretien.</article>
-      <article class="card reveal" style="animation-delay:.24s"><strong>Valeur :</strong> Spécifications solides sans extras inutiles.</article>
-    </div>
-  </section>
+<footer>
+  © 2025 Beaumont Lawnmower Shop LLC — All rights reserved
+</footer>
 
-  <!-- Products -->
-  <section id="products" class="container">
-    <h2>Produits</h2>
-    <div class="cards">
-      <article class="card reveal" style="animation-delay:.00s">
-        <h3>Mini Moissonneuse</h3>
-        <p>Récolte compacte pour petites parcelles ; transmission simple et faible consommation.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.08s">
-        <h3>Outils de Fourrage</h3>
-        <p>Accessoires de coupe et ramassage adaptés aux tracteurs de puissance moyenne.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.16s">
-        <h3>Silos & Manutention</h3>
-        <p>Chargeurs et vis de silo avec commandes simples.</p>
-      </article>
-      <article class="card reveal" style="animation-delay:.24s">
-        <h3>Kits de Service</h3>
-        <p>Filtres, courroies et fluides regroupés pour maximiser le temps de fonctionnement.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="container">
-    <h2>Galerie</h2>
-    <div class="gallery">
-      <img src="https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg" alt="Tracteur au champ">
-      <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse gros plan">
-      <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Équipement de fourrage">
-      <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Chargeur de silo">
-    </div>
-  </section>
-
-  <!-- Notre Formule -->
-  <section id="formula" class="container">
-    <h2>Notre Formule (10 Points Clés)</h2>
-    <div class="formula">
-      <ol>
-        <li><strong>Design Simple :</strong> Commandes intuitives, pièces accessibles.</li>
-        <li><strong>Taille Adaptée :</strong> Puissance calibrée aux parcelles et tâches.</li>
-        <li><strong>Économie de Carburant :</strong> Moteurs et transmissions efficaces.</li>
-        <li><strong>Durabilité :</strong> Pièces d’usure renforcées ; pièces de rechange faciles.</li>
-        <li><strong>Sécurité :</strong> Protections, prise de force sécurisée, étiquettes claires.</li>
-        <li><strong>Maintenance :</strong> Kits de service et plannings inclus.</li>
-        <li><strong>Polyvalence :</strong> Un tracteur, plusieurs accessoires.</li>
-        <li><strong>Disponibilité :</strong> Devis rapides et délais réalistes.</li>
-        <li><strong>Formation :</strong> Initiation simple à la livraison.</li>
-        <li><strong>Suivi :</strong> Assistance téléphonique/email et conseils pièces.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="container">
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <div><strong>Entreprise :</strong> HUNANIMA</div>
-      <div><strong>Domaine :</strong> Machines Agricoles Simples</div>
-      <div><strong>Adresse :</strong> Avenue Baratier, 95160 Montmorency, France</div>
-      <div><strong>Téléphone :</strong> +33 7 38 50 26 36</div>
-      <div><strong>Email :</strong> admin@tyusex.shop</div>
-      <div class="contact-actions">
-        <a href="mailto:admin@tyusex.shop?subject=Demande%20-%20HUNANIMA%20Machines%20Agricoles" target="_blank" rel="noopener">Envoyer un Email</a>
-        <a href="tel:+33738502636">Appeler</a>
-        <a href="https://wa.me/33738502636" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.google.com/maps/search/?api=1&query=Avenue+Baratier+95160+Montmorency" target="_blank" rel="noopener">Ouvrir la Carte</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 HUNANIMA — Tous droits réservés
-  </footer>
-
-  <script>
-    // Apparition progressive des cartes
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('reveal'); observer.unobserve(e.target); }
-      })
-    }, {threshold:.15});
-    document.querySelectorAll('.card').forEach(el=>observer.observe(el));
-  </script>
 </body>
 </html>
